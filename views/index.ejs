@@ -19,9 +19,9 @@
             <th>News</th>
             <th>Date</th>
         </tr>
-        <tr ng-repeat="feed in feeds.feeds">
-            <td>{{feed.news}}</td>
-            <td>{{feed.created}}</td>
+        <tr ng-repeat="news in feeds.news">
+            <td>{{news.news}}</td>
+            <td>{{news.created}}</td>
         </tr>
       </table>
       <form method="post">

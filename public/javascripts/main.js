@@ -4,9 +4,9 @@
     var app = angular.module('news-feeds',['ngResource']);
     app.controller('FeedsController', function($resource,$scope){
         var socket = io();
-        $scope.feeds = [];
+        $scope.news = [];
         $resource('/api/news').query().$promise.then(function(data){
-            $scope.feeds = data;
+            $scope.news = data;
         });
         
     })
