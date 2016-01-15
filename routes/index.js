@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
     .limit(10)
     .sort('-created')
     .exec(function(err,news){
-        console.log(err,news);
         res.render('index', { title: 'Welcome to Simple live updating news feed' });    
   });
   
@@ -25,6 +24,24 @@ router.post('/', function(req, res, next) {
             res.redirect('/');
         }
     });
+});
+router.get('/api/news', function(req, res, next) {
+    db.News
+    .find({publish:true})
+    .limit(10)
+    .sort('-created')
+    .exec(function(err,news){
+        if(err){
+            err.status = 500
+            err.stack = "Unable to save record"
+            return next(err);
+        }
+        else{
+            console.log(news);
+            res.status(200).json(news);
+        }
+            
+  });
 });
 
 

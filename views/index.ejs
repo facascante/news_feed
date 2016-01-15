@@ -7,10 +7,23 @@
     <script src="/angular/angular.min.js"></script>
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/angular-resource/angular-resource.min.js"></script>
+    <script src="/javascripts/main.js"></script>
   </head>
-  <body>
-    <div class="container-fluid">
+  <body ng-app="news-feeds">
+    <div class="container-fluid" >
       <h1><%= title %></h1>
+      <table class="table" ng-controller="FeedsController as feeds">
+        <tr>
+            <th>News</th>
+            <th>Date</th>
+        </tr>
+        <tr ng-repeat="feed in feeds.feeds">
+            <td>{{feed.news}}</td>
+            <td>{{feed.created}}</td>
+        </tr>
+      </table>
       <form method="post">
         <div class="form-group">
           <textarea name="news" class="form-control" rows="3" placeholder="Newsfeed"></textarea>

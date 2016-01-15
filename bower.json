@@ -1,0 +1,21 @@
+{
+  "name": "news_feed",
+  "version": "0.0.0",
+  "homepage": "https://github.com/facascante/news_feed",
+  "authors": [
+    "chito <chito@burstsms.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.4.8",
+    "angular": "1.5.0-rc.0",
+    "bootstrap": "~3.3.6"
+  }
+}
