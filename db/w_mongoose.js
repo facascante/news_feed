@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var config = require('config');
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(config.get('mongo_url'));
 
 var newsSchema = new Schema({
     news: {
@@ -18,7 +19,7 @@ var newsSchema = new Schema({
     }
 });
 
-var News = mongoose.model('Blog',newsSchema);
+var News = mongoose.model(config.get('news_table'),newsSchema);
 
 module.exports = {
 	News : News

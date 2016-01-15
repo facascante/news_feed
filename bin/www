@@ -6,7 +6,10 @@ app.set('port', process.env.PORT || 3000);
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-io.on('connection', function(){ 
-  debug('Express server listening on port ' + server.address().port);
+io.on('connection', function(socket){ 
+  socket.on('save-feed',function(data){
+        console.log(data,"chito save-feed");
+        socket.broadcast.emit('latest-feed',true);
+  })
 });
 server.listen(app.get('port'));

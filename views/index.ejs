@@ -12,21 +12,21 @@
     <script src="/javascripts/main.js"></script>
   </head>
   <body ng-app="news-feeds">
-    <div class="container-fluid" >
+    <div class="container-fluid" ng-controller="FeedsController as feeds">
       <h1><%= title %></h1>
-      <table class="table" ng-controller="FeedsController as feeds">
+      <table class="table">
         <tr>
             <th>News</th>
             <th>Date</th>
         </tr>
-        <tr ng-repeat="news in feeds.news">
-            <td>{{news.news}}</td>
-            <td>{{news.created}}</td>
+        <tr ng-repeat="feed in newsList">
+            <td>{{feed.news}}</td>
+            <td>{{feed.created}}</td>
         </tr>
       </table>
-      <form method="post">
+      <form name="save_form" ng-submit="save_form.$valid && saveFeed()" novalidate>
         <div class="form-group">
-          <textarea name="news" class="form-control" rows="3" placeholder="Newsfeed"></textarea>
+          <textarea ng-model="news.news" class="form-control" rows="3" placeholder="Newsfeed"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
