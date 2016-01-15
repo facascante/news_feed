@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var news_feed = require('./routes/news_feed');
 
 var app = express();
 
@@ -23,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
-app.use('/api/news_feed', news_feed);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
